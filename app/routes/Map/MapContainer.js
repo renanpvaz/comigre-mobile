@@ -1,10 +1,10 @@
 import React from 'react';
-import Map from './Map';
+import MapExample from './Map';
 import Routes from '../../config/routes';
 
 const MapContainer = (props) => {
   return (
-    <Map />
+    <MapExample></MapExample>
   );
 };
 
