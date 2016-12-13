@@ -48,8 +48,8 @@ const SignIn = (props) => {
 
       <View style={styles.buttons}>
         <Button text="Sign In" onPress={signIn} />
+        <Button text="Sign In anonymously" onPress={createAccount} />
         <Button text="Create Account" onPress={createAccount} />
-        <Button text="Log in anonymously" onPress={createAccount} />
       </View>
 
       <KeyboardSpacer />
@@ -60,6 +60,7 @@ const SignIn = (props) => {
 SignIn.propTypes = {
   updateState: React.PropTypes.func,
   signIn: React.PropTypes.func,
+  signInAnonymously: React.PropTypes.func,
   createAccount: React.PropTypes.func,
   error: React.PropTypes.string,
   confirmPasswordVisible: React.PropTypes.bool,

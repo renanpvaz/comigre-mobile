@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from '../routes/Home';
+import Map from '../routes/Map';
 import Details from '../routes/Details';
 import Profile from '../routes/Profile';
 import SignIn from '../routes/SignIn';
@@ -14,6 +15,17 @@ export const routes = {
       getTitle() {
         return 'Home';
       },
+    };
+  },
+  getMapRoute() {
+    return {
+      renderScene(navigator) {
+        return <Map navigator={navigator} />;
+      },
+
+      getTitle() {
+        return 'Mapa';
+      }
     };
   },
   getDetailsRoute() {

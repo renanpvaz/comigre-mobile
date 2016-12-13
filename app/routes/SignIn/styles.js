@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: colors.background,
   },
   buttons: {
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   error: {
     height: 28,

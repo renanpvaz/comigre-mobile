@@ -63,6 +63,10 @@ class SignInContainer extends Component {
     }
   }
 
+  handleAnonynmousSignIn() {
+  
+  }
+
   handleCreateAccount() {
     const { email, password, confirmPasswordVisible } = this.state;
 
@@ -86,6 +90,7 @@ class SignInContainer extends Component {
       <SignIn
         updateState={this.setState.bind(this)}
         signIn={this.handleSignIn.bind(this)}
+        signInAnonymously={this.handleAnonynmousSignIn.bind(this)}
         createAccount={this.handleCreateAccount.bind(this)}
         {...this.state}
       />
