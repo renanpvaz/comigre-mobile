@@ -15,6 +15,8 @@ export const routes = {
       getTitle() {
         return 'Home';
       },
+
+      showNavigationBar: true,
     };
   },
   getMapRoute() {
@@ -25,7 +27,9 @@ export const routes = {
 
       getTitle() {
         return 'Mapa';
-      }
+      },
+
+      showNavigationBar: true
     };
   },
   getDetailsRoute() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import ExNavigator from '@exponent/react-native-navigator';
 import Routes from '../../config/routes';
@@ -16,13 +16,10 @@ class LoggedIn extends React.Component {
 
   renderTabItem(title, initialRoute, Icon) {
     const { selectedTab } = this.state;
-    const sceneStyle = [];
-    if (initialRoute.showNavigationBar !== false) {
-      sceneStyle.push({ paddingTop: 64 });
-    }
 
     return (
       <TabNavigator.Item
+        selectedTitleStyle={{ color: '#39BD98' }}
         selected={selectedTab === title}
         title={title}
         renderIcon={() => <Image style={styles.icon} source={Icon} />}
@@ -36,8 +33,7 @@ class LoggedIn extends React.Component {
       >
         <ExNavigator
           initialRoute={initialRoute}
-          style={{ flex: 1 }}
-          sceneStyle={sceneStyle}
+          style={{ flex: 1, margin: 0 }}
           showNavigationBar={initialRoute.showNavigationBar}
         />
       </TabNavigator.Item>
