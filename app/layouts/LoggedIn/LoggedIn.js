@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import TabNavigator from 'react-native-tab-navigator';
 import ExNavigator from '@exponent/react-native-navigator';
 import Routes from '../../config/routes';
@@ -10,7 +11,7 @@ class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'Home',
+      selectedTab: 'Map',
     };
   }
 
@@ -42,10 +43,10 @@ class LoggedIn extends React.Component {
 
   render() {
     return (
-      <TabNavigator>
-        {this.renderTabItem('Home', Routes.getHomeRoute(), images.icons.home)}
-        {this.renderTabItem('Profile', Routes.getProfileRoute(), images.icons.profile)}
-        {this.renderTabItem('Map', Routes.getMapRoute(), images.icons.profile)}
+      <TabNavigator tabBarStyle={{ height: 55 }}>
+        {this.renderTabItem('Home', Routes.getHomeRoute(), images.icons.recents)}
+        {this.renderTabItem('Map', Routes.getMapRoute(), images.icons.map)}
+        {this.renderTabItem('Profile', Routes.getProfileRoute(), images.icons.guides)}
       </TabNavigator>
     );
   }
