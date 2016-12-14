@@ -12,6 +12,7 @@
     "gravatar-api": "^1.4.0",
     "react": "~15.4.0-rc.4",
     "react-native": "^0.39.0",
+    "react-native-elements": "^0.7.1",
     "react-native-keyboard-spacer": "^0.3.0",
     "react-native-mapbox-gl": "^5.1.0",
     "react-native-meteor": "^1.0.0-rc14",

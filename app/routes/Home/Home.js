@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Button from '../../components/Button';
 import styles from './styles';
+import { logo } from '../../config/images';
+
+import { Card, ListItem, Button } from 'react-native-elements'
 
 class Home extends React.Component {
   static route = {
@@ -21,10 +22,19 @@ class Home extends React.Component {
         <Text style={styles.main}>
           Home
         </Text>
-        <Button
-          text="Details"
-          onPress={this.props.onDetailsPress}
-        />
+        <Card
+          title='HELLO WORLD'
+          image={logo}>
+          <Text style={{marginBottom: 10}}>
+            The idea with React Native Elements is more about component structure than actual design.
+          </Text>
+          <Button
+            icon={{name: 'code'}}
+            backgroundColor='#03A9F4'
+            fontFamily='Lato'
+            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+            title='VIEW NOW' />
+        </Card>
       </View>
     );
   }
