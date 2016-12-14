@@ -16,31 +16,31 @@ const accessToken = 'sk.eyJ1IjoicmVuYW5wdmF6IiwiYSI6ImNpdGQydzg3dzAxNXkyeHF1bmJx
 Mapbox.setAccessToken(accessToken);
 
 class MapExample extends Component {
-  state = {
-    center: {
-      latitude: 40.72052634,
-      longitude: -73.97686958312988
-    },
-    zoom: 11,
-    userTrackingMode: Mapbox.userTrackingMode.none
-  };
-
-  componentWillMount() {
-    this._offlineProgressSubscription = Mapbox.addOfflinePackProgressListener(progress => {
-      console.log('offline pack progress', progress);
-    });
-    this._offlineMaxTilesSubscription = Mapbox.addOfflineMaxAllowedTilesListener(tiles => {
-      console.log('offline max allowed tiles', tiles);
-    });
-    this._offlineErrorSubscription = Mapbox.addOfflineErrorListener(error => {
-      console.log('offline error', error);
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+      center: {
+        latitude: 0,
+        longitude: 0
+      },
+      zoom: 15,
+      userTrackingMode: Mapbox.userTrackingMode.follow
+    };
   }
 
-  componentWillUnmount() {
-    this._offlineProgressSubscription.remove();
-    this._offlineMaxTilesSubscription.remove();
-    this._offlineErrorSubscription.remove();
+  componentWillReceiveProps(props) {
+    const annotations = props.places
+      .filter(place => !!place.location)
+      .map(
+        place => ({
+          coordinates: [place.location.coordinates.lat, place.location.coordinates.lng],
+          type: 'point',
+          title: place.name || 'Teste',
+          id: place._id
+        })
+      );
+
+    this.setState({ annotations });
   }
 
   render() {
@@ -64,6 +64,11 @@ class MapExample extends Component {
     );
   }
 }
+
+MapExample.propTypes = {
+  placesReady: React.PropTypes.bool,
+  places: React.PropTypes.array,
+};
 
 const styles = StyleSheet.create({
   container: {
