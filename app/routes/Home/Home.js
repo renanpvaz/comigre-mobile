@@ -1,47 +1,75 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import styles from './styles';
-import { logo } from '../../config/images';
+import images from '../../config/images';
 
-import { Card, ListItem, Button } from 'react-native-elements'
+import Loading from '../../components/Loading';
+import { Card, ListItem, Icon } from 'react-native-elements'
+
+import { MeteorListView } from 'react-native-meteor';
 
 class Home extends React.Component {
-  static route = {
-    navigationBar: {
-      title: 'Home'
-    },
-  };
-
   constructor(props) {
     super(props);
   }
 
+  renderCard(place) {
+    return (
+      <Card key={place._id} containerStyle={{  marginLeft: 0,marginRight: 0 }}>
+        <Text>
+          Eventos
+        </Text>
+        <Text style={{fontWeight: 'bold', color: 'black', fontSize: 18, marginBottom: 10}}>
+          {place.name}
+        </Text>
+        <Text>
+          {place.description}
+        </Text>
+        <View style={{
+          flex: 1,
+          marginTop: 20,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
+          <Text>
+            12/02/2016
+          </Text>
+          <View style={{
+            paddingLeft: 8,
+            width: 100,
+            flex: 1,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+          }}>
+            <Text style={{color: '#777'}}>
+              Ver Detalhes
+            </Text>
+            <Icon color="#777" name='keyboard-arrow-right' />
+          </View>
+        </View>
+      </Card>
+    )
+  }
+
   render() {
+    if (!this.props.feedReady) {
+      return <Loading />;
+    }
+
     return (
       <View style={styles.container}>
-        <Text style={styles.main}>
-          Home
-        </Text>
-        <Card
-          title='HELLO WORLD'
-          image={logo}>
-          <Text style={{marginBottom: 10}}>
-            The idea with React Native Elements is more about component structure than actual design.
-          </Text>
-          <Button
-            icon={{name: 'code'}}
-            backgroundColor='#03A9F4'
-            fontFamily='Lato'
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' />
-        </Card>
+        <ScrollView style={{ marginLeft: 0,marginRight: 0 }}>
+          {this.props.places.map(this.renderCard)}
+        </ScrollView>
       </View>
     );
   }
 }
 
 Home.propTypes = {
-  onDetailsPress: React.PropTypes.func,
+  feedReady: React.PropTypes.bool,
+  places: React.PropTypes.array,
 };
 
 export default Home;
