@@ -2,6 +2,8 @@ import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import ExNavigator from '@exponent/react-native-navigator';
+import I18n from 'react-native-i18n'
+
 import Routes from '../../config/routes';
 import images from '../../config/images';
 import styles from './styles';
@@ -10,7 +12,7 @@ class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'Map',
+      selectedTab: I18n.t('map'),
     };
   }
 
@@ -43,12 +45,30 @@ class LoggedIn extends React.Component {
   render() {
     return (
       <TabNavigator tabBarStyle={{ height: 53 }}>
-        {this.renderTabItem('Home', Routes.getHomeRoute(), images.icons.recents)}
-        {this.renderTabItem('Map', Routes.getMapRoute(), images.icons.map)}
-        {this.renderTabItem('Profile', Routes.getProfileRoute(), images.icons.guides)}
+        {this.renderTabItem(I18n.t('recents'), Routes.getHomeRoute(), images.icons.recents)}
+        {this.renderTabItem(I18n.t('map'), Routes.getMapRoute(), images.icons.map)}
+        {this.renderTabItem(I18n.t('guides'), Routes.getProfileRoute(), images.icons.guides)}
       </TabNavigator>
     );
   }
 }
+
+I18n.translations = {
+  'pt-BR': {
+    guides: 'Guias',
+    map: 'Mapa',
+    recents: 'Recentes'
+  },
+  en: {
+    guides: 'Guides',
+    map: 'Map',
+    recents: 'New'
+  },
+  fr: {
+    guides: 'Guides',
+    map: 'Carte',
+    recents: 'Recént'
+  }
+};
 
 export default LoggedIn;

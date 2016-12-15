@@ -131,6 +131,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-i18n')
     compile project(':react-native-vector-icons')
     compile project(':react-native-mapbox-gl')
     compile fileTree(dir: "libs", include: ["*.jar"])
