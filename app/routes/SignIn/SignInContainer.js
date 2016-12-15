@@ -64,7 +64,16 @@ class SignInContainer extends Component {
   }
 
   handleAnonynmousSignIn() {
-  
+    const randomString = Math.random().toString(36).substring(7);
+    const generatedUser = {
+      email: `${randomString}@anon`,
+      password: randomString,
+      anonynmous: true
+    };
+
+    Accounts.createUser(generatedUser, (err) => {
+      Meteor.loginWithPassword(generatedUser.email, randomString);
+    });
   }
 
   handleCreateAccount() {
@@ -75,7 +84,6 @@ class SignInContainer extends Component {
         if (err) {
           this.handleError(err.reason);
         } else {
-          // hack because react-native-meteor doesn't login right away after sign in
           this.handleSignIn();
         }
       });

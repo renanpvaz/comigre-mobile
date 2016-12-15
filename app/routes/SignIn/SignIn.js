@@ -17,7 +17,7 @@ const SignIn = (props) => {
           source={images.logo}
         />
 
-        <Text style={styles.headerText}>React Native Meteor</Text>
+        <Text style={styles.headerText}>Comigre</Text>
         <Text style={styles.subHeaderText}>Boilerplate</Text>
       </View>
 
@@ -48,7 +48,7 @@ const SignIn = (props) => {
 
       <View style={styles.buttons}>
         <Button text="Sign In" onPress={signIn} />
-        <Button text="Sign In anonymously" onPress={createAccount} />
+        <Button text="Sign In anonymously" onPress={props.signInAnonymously} />
         <Button text="Create Account" onPress={createAccount} />
       </View>
 

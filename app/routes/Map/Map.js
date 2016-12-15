@@ -1,5 +1,4 @@
 'use strict';
-/* eslint no-console: 0 */
 
 import React, { Component } from 'react';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
@@ -33,10 +32,13 @@ class MapExample extends Component {
       .filter(place => !!place.location)
       .map(
         place => ({
-          coordinates: [place.location.coordinates.lat, place.location.coordinates.lng],
           type: 'point',
           title: place.name || 'Teste',
-          id: place._id
+          id: place._id,
+          coordinates: [
+            place.location.coordinates[1],
+            place.location.coordinates[0]
+          ],
         })
       );
 

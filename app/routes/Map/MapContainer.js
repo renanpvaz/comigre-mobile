@@ -8,7 +8,7 @@ const MapContainer = (props) => {
     <MapExample
       places={props.places}
       placesReady={props.placesReady}
-      />
+    />
   );
 };
 
