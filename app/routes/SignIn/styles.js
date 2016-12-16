@@ -34,7 +34,6 @@ export default StyleSheet.create({
     fontSize: 30,
     color: colors.headerText,
     fontWeight: '600',
-    fontStyle: 'italic',
   },
   subHeaderText: {
     fontSize: 20,

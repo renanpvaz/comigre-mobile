@@ -6,9 +6,7 @@ import LoggedOut from './layouts/LoggedOut';
 import LoggedIn from './layouts/LoggedIn';
 import Loading from './components/Loading';
 import settings from './config/settings';
-
-I18n.defaultLocale = 'pt-BR';
-I18n.locale = 'pt-BR';
+import './config/settings';
 
 Meteor.connect(settings.METEOR_URL);
 

@@ -1,10 +1,30 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
+import I18n from 'react-native-i18n';
+
 import Button from '../../components/Button';
 import GenericTextInput, { InputWrapper } from '../../components/GenericTextInput';
 import images from '../../config/images';
 import styles from './styles';
+
+I18n.translations = {
+  'pt-BR': {
+    signIn: 'Entrar',
+    signInAnonymously: 'Entrar anônimamente',
+    createAccount: 'Criar conta'
+  },
+  en: {
+    signIn: 'Sign In',
+    signInAnonymously: 'Sign In Anonymously',
+    createAccount: 'Create Account'
+  },
+  fr: {
+    signIn: 'Guides',
+    signInAnonymously: 'Carte',
+    createAccount: 'Recént'
+  }
+};
 
 const SignIn = (props) => {
   const { updateState, signIn, createAccount, error, confirmPasswordVisible } = props;
@@ -12,13 +32,7 @@ const SignIn = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image
-          style={styles.logo}
-          source={images.logo}
-        />
-
         <Text style={styles.headerText}>Comigre</Text>
-        <Text style={styles.subHeaderText}>Boilerplate</Text>
       </View>
 
       <InputWrapper>
@@ -47,11 +61,10 @@ const SignIn = (props) => {
       </View>
 
       <View style={styles.buttons}>
-        <Button text="Sign In" onPress={signIn} />
-        <Button text="Sign In anonymously" onPress={props.signInAnonymously} />
-        <Button text="Create Account" onPress={createAccount} />
+        <Button text={I18n.t('signIn')} onPress={signIn} />
+        <Button text={I18n.t('signInAnonymously')} onPress={props.signInAnonymously} />
+        <Button text={I18n.t('createAccount')} onPress={createAccount} />
       </View>
-
       <KeyboardSpacer />
     </View>
   );

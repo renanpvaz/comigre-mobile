@@ -2,11 +2,34 @@ import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import ExNavigator from '@exponent/react-native-navigator';
-import I18n from 'react-native-i18n'
+
 
 import Routes from '../../config/routes';
 import images from '../../config/images';
 import styles from './styles';
+
+import I18n from 'react-native-i18n';
+
+I18n.defaultLocale = 'pt-BR';
+I18n.locale = 'pt-BR';
+
+I18n.translations = {
+  'pt-BR': {
+    guides: 'Guias',
+    map: 'Mapa',
+    recents: 'Recentes',
+  },
+  en: {
+    guides: 'Guides',
+    map: 'Map',
+    recents: 'New',
+  },
+  fr: {
+    guides: 'Guides',
+    map: 'Carte',
+    recents: 'Recént',
+  }
+};
 
 class LoggedIn extends React.Component {
   constructor(props) {
@@ -52,23 +75,5 @@ class LoggedIn extends React.Component {
     );
   }
 }
-
-I18n.translations = {
-  'pt-BR': {
-    guides: 'Guias',
-    map: 'Mapa',
-    recents: 'Recentes'
-  },
-  en: {
-    guides: 'Guides',
-    map: 'Map',
-    recents: 'New'
-  },
-  fr: {
-    guides: 'Guides',
-    map: 'Carte',
-    recents: 'Recént'
-  }
-};
 
 export default LoggedIn;
