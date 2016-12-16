@@ -7,6 +7,7 @@ I18n.locale = 'pt-BR';
 
 I18n.translations = {
   'pt-BR': {
+    password: 'Senha',
     guides: 'Guias',
     map: 'Mapa',
     recents: 'Recentes',
@@ -15,6 +16,7 @@ I18n.translations = {
     createAccount: 'Criar conta'
   },
   en: {
+    password: 'Senha',
     guides: 'Guides',
     map: 'Map',
     recents: 'New',
@@ -23,6 +25,7 @@ I18n.translations = {
     createAccount: 'Create Account'
   },
   fr: {
+    password: 'Senha',
     guides: 'Guides',
     map: 'Carte',
     recents: 'Recént',

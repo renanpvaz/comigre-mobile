@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 const images = {
-  logo: require('../images/rn-logo.png'),
+  logo: require('../images/logo.png'),
   icons: {
     home: require('../images/home-icon.png'),
     profile: require('../images/user-icon.png'),
