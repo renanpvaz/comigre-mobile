@@ -20,6 +20,20 @@ export const routes = {
         return 'Home';
       },
 
+      renderTitle() {
+        return (
+          <FitImage
+            source={images.logo}
+            resizeMode="contain"
+            style={{
+              height: 50,
+              width: 190,
+              marginTop: 5,
+            }}
+          />
+        );
+      },
+
       showNavigationBar: true,
     };
   },
@@ -46,13 +60,6 @@ export const routes = {
           />
         );
       },
-      renderRightButton() {
-        return (
-          <TouchableOpacity style={{ margin: 15 }}>
-            <Image style={{ tintColor: '#929292', width: 25, height: 25  }} source={require('../images/settings-icon.png')} />
-          </TouchableOpacity>
-        );
-      },
 
       showNavigationBar: true
     };
@@ -66,6 +73,7 @@ export const routes = {
       getTitle() {
         return 'Details';
       },
+
     };
   },
   getProfileRoute(id) {
