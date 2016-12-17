@@ -13,13 +13,16 @@ export default StyleSheet.create({
   cardTitle: {
     fontWeight: 'bold',
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
     marginBottom: 10
   },
   cardFooter: {
     flex: 1,
     marginTop: 20,
+    paddingTop: 10,
     flexDirection: 'row',
+    borderTopWidth: .5,
+    borderTopColor: 'rgb(220, 220, 220)',
     justifyContent: 'space-between',
   },
   cardDetails: {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
+import Meteor from 'react-native-meteor';
 
 import Button from '../../components/Button';
 import Avatar from '../../components/Avatar';
@@ -17,9 +18,8 @@ const Profile = ({ detailsReady, event }) => {
     <View style={styles.container}>
       <Image style={styles.header} source={images.profileHeader} />
       <View style={styles.body}>
-        <Avatar email={''} />
         <Text>{event.name}</Text>
-        <Button text="Sign Out" />
+        <Button text="Sign Out" onPress={() => Meteor.logout()} />
       </View>
     </View>
   );

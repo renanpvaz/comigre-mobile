@@ -28,7 +28,7 @@ class Home extends React.Component {
         </Text>
         <View style={styles.cardFooter}>
           <Text>
-            12/02/2016
+            {place.createdAt.toLocaleDateString()}
           </Text>
           <TouchableOpacity onPress={() => this.props.onDetailsPress(place.detailsId)} style={styles.cardDetails}>
             <Text style={{ color: '#777' }}>

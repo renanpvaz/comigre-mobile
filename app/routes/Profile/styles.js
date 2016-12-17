@@ -12,7 +12,7 @@ export default StyleSheet.create({
     height: window.height * 0.4,
   },
   body: {
-    marginTop: -50,
-    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
   },
 });

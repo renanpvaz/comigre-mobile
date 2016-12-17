@@ -6,7 +6,6 @@ import FitImage from 'react-native-fit-image';
 import images from './images';
 import Home from '../routes/Home';
 import Map from '../routes/Map';
-import Details from '../routes/Details';
 import Profile from '../routes/Profile';
 import SignIn from '../routes/SignIn';
 
