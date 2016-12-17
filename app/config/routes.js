@@ -69,10 +69,10 @@ export const routes = {
       },
     };
   },
-  getProfileRoute() {
+  getProfileRoute(id) {
     return {
       renderScene(navigator) {
-        return <Profile navigator={navigator} />;
+        return <Profile id={id} navigator={navigator} />;
       },
 
       showNavigationBar: false,

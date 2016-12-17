@@ -8,6 +8,7 @@ const HomeContainer = (props) => {
     <Home
       feedReady={props.feedReady}
       places={props.places}
+      onDetailsPress={(id) => props.navigator.push(Routes.getProfileRoute(id))}
     />
   );
 };

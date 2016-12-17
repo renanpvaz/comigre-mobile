@@ -2,29 +2,23 @@ import React, { Component } from 'react';
 import Meteor, { createContainer } from 'react-native-meteor';
 import Profile from './Profile';
 
-class ProfileContainer extends Component {
-  handleSignOut() {
-    Meteor.logout();
-  }
-
-  render() {
-    const { user } = this.props;
-
-    return (
-      <Profile
-        user={user}
-        signOut={this.handleSignOut.bind(this)}
-      />
-    );
-  }
+const ProfileContainer = ({ detailsReady, event }) => {
+  return (
+    <Profile detailsReady={detailsReady} event={event} />
+  );
 }
 
 ProfileContainer.propTypes = {
-  user: React.PropTypes.object,
+  id: React.PropTypes.string,
 };
 
-export default createContainer(() => {
+export default createContainer(({ id }) => {
+  const handle = Meteor.subscribe('events');
+
+  console.log('id', id);
+
   return {
-    user: Meteor.user(),
+    detailsReady: handle.ready(),
+    event: Meteor.collection('events').findOne({ _id: id })
   };
 }, ProfileContainer);

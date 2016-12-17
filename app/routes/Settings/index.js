@@ -1,5 +1,5 @@
-import DetailsContainer from './DetailsContainer';
-import Details from './Details';
+import SettingsContainer from './SettingsContainer';
+import Settings from './Settings';
 
-export { Details };
-export default DetailsContainer;
+export { Settings };
+export default SettingsContainer;

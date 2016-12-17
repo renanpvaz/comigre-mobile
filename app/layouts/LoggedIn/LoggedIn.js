@@ -65,7 +65,6 @@ class LoggedIn extends React.Component {
       <TabNavigator tabBarStyle={{ height: 53 }}>
         {this.renderTabItem(I18n.t('recents'), Routes.getHomeRoute(), images.icons.recents)}
         {this.renderTabItem(I18n.t('map'), Routes.getMapRoute(), images.icons.map)}
-        {this.renderTabItem(I18n.t('guides'), Routes.getProfileRoute(), images.icons.guides)}
       </TabNavigator>
     );
   }
