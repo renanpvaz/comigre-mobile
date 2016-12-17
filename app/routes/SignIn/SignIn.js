@@ -24,6 +24,13 @@ const SignIn = (props) => {
         <FormLabel>{I18n.t('password')}</FormLabel>
         <FormInput onChangeText={(password) => updateState({ password })}/>
 
+        {confirmPasswordVisible ?
+          <View>
+            <FormLabel>{I18n.t('passwordConfirm')}</FormLabel>
+            <FormInput onChangeText={(confirmPassword) => updateState({ confirmPassword })}/>
+          </View>
+        : null}
+
         <Button
           raised
           large
@@ -50,32 +57,6 @@ const SignIn = (props) => {
     </View>
   );
 };
-
-
-      // <InputWrapper>
-      //   <GenericTextInput
-      //     placeholder="email address"
-      //     onChangeText={(email) => updateState({ email })}
-      //   />
-      //   <GenericTextInput
-      //     placeholder="password"
-      //     onChangeText={(password) => updateState({ password })}
-      //     secureTextEntry
-      //     borderTop
-      //   />
-      //   {confirmPasswordVisible ?
-      //     <GenericTextInput
-      //       placeholder="confirm password"
-      //       onChangeText={(confirmPassword) => updateState({ confirmPassword })}
-      //       secureTextEntry
-      //       borderTop
-      //     />
-      //   : null}
-      // </InputWrapper>
-
-// <Button text={I18n.t('signIn')} onPress={signIn} />
-// <Button text={I18n.t('signInAnonymously')} onPress={props.signInAnonymously} />
-// <Button text={I18n.t('createAccount')} onPress={createAccount} />
 
 SignIn.propTypes = {
   updateState: React.PropTypes.func,

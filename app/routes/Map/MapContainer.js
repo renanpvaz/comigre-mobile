@@ -13,11 +13,11 @@ const MapContainer = (props) => {
 };
 
 MapContainer.propTypes = {
-  navigator: React.PropTypes.object,
+  navigator: React.PropTypes.object
 };
 
 export default createContainer(() => {
-  const handle = Meteor.subscribe('allPlaces');
+  const handle =  Meteor.subscribe('allPlaces');
 
   return {
     placesReady: handle.ready(),

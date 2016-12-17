@@ -17,6 +17,7 @@ const Comigre = (props) => {
   } else if (user !== null) {
     return <LoggedIn />;
   }
+  
   return <LoggedOut />;
 };
 

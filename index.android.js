@@ -8,6 +8,7 @@ I18n.locale = 'pt-BR';
 I18n.translations = {
   'pt-BR': {
     password: 'Senha',
+    passwordConfirm: 'Confirmar Senha',
     guides: 'Guias',
     map: 'Mapa',
     recents: 'Recentes',
