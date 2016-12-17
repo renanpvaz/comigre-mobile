@@ -9,6 +9,20 @@ import Map from '../routes/Map';
 import Profile from '../routes/Profile';
 import SignIn from '../routes/SignIn';
 
+const title = (
+  <View style={{ flex: 1, alignItems: 'center', width: 200, justifyContent: 'center' }}>
+    <FitImage
+      source={images.logo}
+      resizeMode="contain"
+      style={{
+        height: 40,
+        width: 150,
+        marginTop: 5,
+      }}
+    />
+  </View>
+);
+
 export const routes = {
   getHomeRoute() {
     return {
@@ -21,17 +35,7 @@ export const routes = {
       },
 
       renderTitle() {
-        return (
-          <FitImage
-            source={images.logo}
-            resizeMode="contain"
-            style={{
-              height: 50,
-              width: 190,
-              marginTop: 5,
-            }}
-          />
-        );
+        return title;
       },
 
       showNavigationBar: true,
@@ -48,17 +52,7 @@ export const routes = {
       },
 
       renderTitle() {
-        return (
-          <FitImage
-            source={images.logo}
-            resizeMode="contain"
-            style={{
-              height: 50,
-              width: 190,
-              marginTop: 5,
-            }}
-          />
-        );
+        return title;
       },
 
       showNavigationBar: true
