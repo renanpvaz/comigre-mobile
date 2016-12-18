@@ -7,6 +7,7 @@ import images from './images';
 import Home from '../routes/Home';
 import Map from '../routes/Map';
 import Profile from '../routes/Profile';
+import Settings from '../routes/Settings';
 import SignIn from '../routes/SignIn';
 
 const title = (
@@ -32,6 +33,23 @@ export const routes = {
 
       getTitle() {
         return 'Home';
+      },
+
+      renderTitle() {
+        return title;
+      },
+
+      showNavigationBar: true,
+    };
+  },
+  getSettingsRoute(onLanguageSelected) {
+    return {
+      renderScene(navigator) {
+        return <Settings onLanguageSelected={onLanguageSelected} navigator={navigator} />;
+      },
+
+      getTitle() {
+        return 'Settings';
       },
 
       renderTitle() {

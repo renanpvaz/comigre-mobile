@@ -12,33 +12,17 @@ class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: I18n.t('map')
+      selectedTab: 'settings'
     };
   }
 
-  componentWillMount() {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 20000,
-      maximumAge: 1000
-    };
-
-    navigator.geolocation.getCurrentPosition(
-       ({ coords }) => {
-         this.setState({ coords });
-       },
-       (error) => alert(JSON.stringify(error)),
-       options
-   );
-  }
-
-  renderTabItem(title, initialRoute, Icon) {
+  renderTabItem({ title, name }, initialRoute, Icon) {
     const { selectedTab } = this.state;
 
     return (
       <TabNavigator.Item
         selectedTitleStyle={{ color: '#39BD98' }}
-        selected={selectedTab === title}
+        selected={selectedTab === name}
         title={title}
         renderIcon={() => <Image style={styles.icon} source={Icon} />}
         renderSelectedIcon={() => (
@@ -47,7 +31,7 @@ class LoggedIn extends React.Component {
             source={Icon}
           />
         )}
-        onPress={() => this.setState({ selectedTab: title })}
+        onPress={() => this.setState({ selectedTab: name })}
       >
 
         <ExNavigator
@@ -61,10 +45,14 @@ class LoggedIn extends React.Component {
   }
 
   render() {
+    const { recents, map, settings } = images.icons;
+    const { getHomeRoute, getMapRoute, getSettingsRoute } = Routes;
+
     return (
       <TabNavigator tabBarStyle={{ height: 53 }}>
-        {this.renderTabItem(I18n.t('recents'), Routes.getHomeRoute(), images.icons.recents)}
-        {this.renderTabItem(I18n.t('map'), Routes.getMapRoute(), images.icons.map)}
+        {this.renderTabItem({ title: I18n.t('recents'), name: 'recents' }, getHomeRoute(), recents)}
+        {this.renderTabItem({ title: I18n.t('map'), name: 'map' }, getMapRoute(), map)}
+        {this.renderTabItem({ title: I18n.t('settings'), name: 'settings' }, getSettingsRoute(() => this.forceUpdate()), settings)}
       </TabNavigator>
     );
   }
