@@ -8,6 +8,7 @@ I18n.fallbacks = true;
 
 I18n.translations = {
   'pt-BR': {
+    signOut: 'Desconectar-se',
     language: 'Idioma',
     password: 'Senha',
     settings: 'Configurações',
@@ -20,6 +21,7 @@ I18n.translations = {
     createAccount: 'Criar conta'
   },
   en: {
+    signOut: 'Sign Out',
     language: 'Language',
     password: 'Password',
     guides: 'Guides',
@@ -31,9 +33,11 @@ I18n.translations = {
     createAccount: 'Create Account'
   },
   fr: {
+    signOut: 'Se déconnecter',
     language: 'Langue',
     password: 'Mot de passe',
     guides: 'Guides',
+    settings: 'Paramètres',
     map: 'Carte',
     recents: 'Recént',
     signIn: 'Entrer',
@@ -41,10 +45,12 @@ I18n.translations = {
     createAccount: 'Créer un compte'
   },
   es: {
+    signOut: 'Desconectar',
     language: 'Idioma',
     password: 'contraseña',
     guides: 'Guías',
     map: 'Mapa',
+    settings: 'Ajustes',
     recents: 'Reciente',
     signIn: 'Entrar',
     signInAnonymously: 'Firmar de forma anónima',
