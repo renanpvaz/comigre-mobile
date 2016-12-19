@@ -24,5 +24,13 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#e6e6e6',
     paddingBottom: 30
+  },
+  contactItem: {
+    marginTop: 20,
+    width: 200,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   }
 });

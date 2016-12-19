@@ -32,31 +32,17 @@ class Details extends React.Component {
   renderContactInfo(info) {
     return (
       <View style={{ flexDirection: 'column' }}>
-        <View style={{
-          marginTop: 20,
-          width: 200,
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start'
-        }}>
+        <View style={styles.contactItem}>
+        <Icon
+          color="#DF1562"
+          name="assignment-ind" />
+          <Text style={{ fontSize: 17, marginLeft: 10 }}>{info.name}</Text>
+        </View>
+        <View style={styles.contactItem}>
           <Icon
             color="#DF1562"
             name="email" />
           <Text style={{ fontSize: 17, marginLeft: 10 }}>{info.email}</Text>
-        </View>
-        <View style={{
-          marginTop: 20,
-          width: 200,
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start'
-        }}>
-          <Icon
-            color="#DF1562"
-            name="assignment-ind" />
-          <Text style={{ fontSize: 17, marginLeft: 10 }}>{info.name}</Text>
         </View>
       </View>
     )

@@ -8,7 +8,11 @@ const HomeContainer = (props) => {
     <Home
       feedReady={props.feedReady}
       places={props.places}
-      onDetailsPress={(place) => props.navigator.push(Routes.getProfileRoute(place))}
+      onDetailsPress={
+        (place) => props.navigator.push(
+          Routes.getProfileRoute(place, () => props.navigator.pop())
+        )
+      }
     />
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-
 import FitImage from 'react-native-fit-image';
+import { Icon } from 'react-native-elements';
 
 import images from './images';
 import Home from '../routes/Home';
@@ -88,7 +88,7 @@ export const routes = {
 
     };
   },
-  getProfileRoute(place) {
+  getProfileRoute(place, onBackPressed) {
     return {
       renderScene(navigator) {
         return <Profile place={place} navigator={navigator} />;
@@ -96,9 +96,12 @@ export const routes = {
 
       renderLeftButton() {
         return (
-          <Text>
-          Jacatar
-          </Text>
+          <TouchableOpacity onPress={onBackPressed} style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
+            <Icon name="keyboard-arrow-left" color="gray" />
+            <Text style={{ fontSize: 18 }}>
+              Recentes
+            </Text>
+          </TouchableOpacity>
         );
       },
 
