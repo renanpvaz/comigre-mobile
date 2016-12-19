@@ -88,10 +88,10 @@ export const routes = {
 
     };
   },
-  getProfileRoute(id) {
+  getProfileRoute(place) {
     return {
       renderScene(navigator) {
-        return <Profile id={id} navigator={navigator} />;
+        return <Profile place={place} navigator={navigator} />;
       },
 
       renderLeftButton() {

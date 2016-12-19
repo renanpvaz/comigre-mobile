@@ -30,7 +30,7 @@ class Home extends React.Component {
       <Card key={place._id} containerStyle={{  marginLeft: 0, marginRight: 0 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={{ marginBottom: 10 }}>
-          Cadastrado por <Text style={{ color: '#DF1562' }}>{capitalize(place.user.username)}</Text>
+            Cadastrado por <Text style={{ color: '#DF1562' }}>{capitalize(place.user.username)}</Text>
           </Text>
           <Icon
             color="#DF1562"
@@ -46,7 +46,7 @@ class Home extends React.Component {
           <Text>
             {place.createdAt.toLocaleDateString()}
           </Text>
-          <TouchableOpacity onPress={() => this.props.onDetailsPress(place.detailsId)} style={styles.cardDetails}>
+          <TouchableOpacity onPress={() => this.props.onDetailsPress(place)} style={styles.cardDetails}>
             <Text style={{ color: '#777' }}>
               Ver Detalhes
             </Text>

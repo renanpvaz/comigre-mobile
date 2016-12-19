@@ -7,6 +7,7 @@ const Loading = (props) => {
     <View style={styles.container}>
       <ActivityIndicator
         animating
+        color="#DF1562"
         size={props.size}
         {...props}
       />

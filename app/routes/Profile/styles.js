@@ -13,6 +13,16 @@ export default StyleSheet.create({
   },
   body: {
     flex: 1,
+    padding: 20,
     flexDirection: 'column',
+    backgroundColor: 'white',
   },
+  description: {
+    fontSize: 18,
+    marginTop: 20,
+    lineHeight: 32,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e6e6e6',
+    paddingBottom: 30
+  }
 });
