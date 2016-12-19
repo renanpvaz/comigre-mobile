@@ -2,7 +2,6 @@ import { AppRegistry } from 'react-native';
 import App from './app';
 import I18n from 'react-native-i18n';
 
-I18n.defaultLocale = 'pt-BR';
 I18n.locale = 'pt-BR';
 I18n.fallbacks = true;
 

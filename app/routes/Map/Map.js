@@ -56,6 +56,7 @@ class MapExample extends Component {
           initialDirection={0}
           rotateEnabled={true}
           scrollEnabled={true}
+          logoIsHidden={true}
           zoomEnabled={true}
           styleURL={Mapbox.mapStyles.basic}
           userTrackingMode={this.state.userTrackingMode}

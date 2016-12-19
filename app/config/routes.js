@@ -94,6 +94,14 @@ export const routes = {
         return <Profile id={id} navigator={navigator} />;
       },
 
+      renderLeftButton() {
+        return (
+          <Text>
+          Jacatar
+          </Text>
+        );
+      },
+
       showNavigationBar: false,
     };
   },

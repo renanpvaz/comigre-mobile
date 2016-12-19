@@ -12,17 +12,17 @@ class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'settings'
+      selectedTab: 'recents'
     };
   }
 
-  renderTabItem({ title, name }, initialRoute, Icon) {
+  renderTabItem({ title, id }, initialRoute, Icon) {
     const { selectedTab } = this.state;
 
     return (
       <TabNavigator.Item
         selectedTitleStyle={{ color: '#39BD98' }}
-        selected={selectedTab === name}
+        selected={selectedTab === id}
         title={title}
         renderIcon={() => <Image style={styles.icon} source={Icon} />}
         renderSelectedIcon={() => (
@@ -31,7 +31,7 @@ class LoggedIn extends React.Component {
             source={Icon}
           />
         )}
-        onPress={() => this.setState({ selectedTab: name })}
+        onPress={() => this.setState({ selectedTab: id })}
       >
 
         <ExNavigator
@@ -45,14 +45,15 @@ class LoggedIn extends React.Component {
   }
 
   render() {
-    const { recents, map, settings } = images.icons;
-    const { getHomeRoute, getMapRoute, getSettingsRoute } = Routes;
+    const { recents, map, settings, guides } = images.icons;
+    const { getHomeRoute, getMapRoute, getSettingsRoute, getProfileRoute } = Routes;
 
     return (
       <TabNavigator tabBarStyle={{ height: 53 }}>
-        {this.renderTabItem({ title: I18n.t('recents'), name: 'recents' }, getHomeRoute(), recents)}
-        {this.renderTabItem({ title: I18n.t('map'), name: 'map' }, getMapRoute(), map)}
-        {this.renderTabItem({ title: I18n.t('settings'), name: 'settings' }, getSettingsRoute(() => this.forceUpdate()), settings)}
+        {this.renderTabItem({ title: I18n.t('recents'), id: 'recents' }, getHomeRoute(), recents)}
+        {this.renderTabItem({ title: I18n.t('map'), id: 'map' }, getMapRoute(), map)}
+        {this.renderTabItem({ title: I18n.t('guides'), id: 'guides' }, getProfileRoute(), guides)}
+        {this.renderTabItem({ title: I18n.t('settings'), id: 'settings' }, getSettingsRoute(() => this.forceUpdate()), settings)}
       </TabNavigator>
     );
   }
