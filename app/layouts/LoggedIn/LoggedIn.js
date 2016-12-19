@@ -12,7 +12,7 @@ class LoggedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'recents'
+      selectedTab: 'map'
     };
   }
 

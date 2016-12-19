@@ -21,6 +21,18 @@ class Home extends React.Component {
       case 'type-event':
         name = 'event';
         break;
+      case 'type-accommodation':
+        name = 'home';
+        break;
+      case 'type-job':
+        name = 'work';
+        break;
+      case 'type-vocational-course':
+        name = 'school';
+        break;
+      case 'type-portuguese-class':
+        name = 'record-voice-over';
+        break;
     }
 
     return name;

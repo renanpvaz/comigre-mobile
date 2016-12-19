@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import FitImage from 'react-native-fit-image';
 import { Icon } from 'react-native-elements';
+import I18n from 'react-native-i18n';
 
 import images from './images';
 import Home from '../routes/Home';
@@ -99,7 +100,7 @@ export const routes = {
           <TouchableOpacity onPress={onBackPressed} style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
             <Icon name="keyboard-arrow-left" color="gray" />
             <Text style={{ fontSize: 18 }}>
-              Recentes
+              {I18n.t('recents')}
             </Text>
           </TouchableOpacity>
         );
