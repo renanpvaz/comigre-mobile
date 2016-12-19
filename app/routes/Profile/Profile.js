@@ -14,7 +14,11 @@ class Details extends React.Component {
     super(props);
 
     this.renderCoverImage = this.renderCoverImage.bind(this);
-    this.renderContactInfo = this.renderContactInfo.bind(this);
+    this.renderContactInfo = this.renderContactInfo;
+
+    this.state = {
+      place: props.place
+    };
   }
 
   renderCoverImage() {
@@ -27,6 +31,22 @@ class Details extends React.Component {
     return (
       <Image style={styles.header} source={{ uri: `${baseUri}/${params}` }} />
     );
+  }
+
+  componentWillReceiveProps({ translation, detailsReady, event }) {
+    if (detailsReady !== this.props.detailsReady) {
+      this.setState({ event });
+    }
+
+    if (translation) {
+      this.setState({
+        event: {
+          ...this.state.event,
+          description: translation.description,
+          name: translation.name,
+        }
+      });
+    }
   }
 
   renderContactInfo(info) {
@@ -49,7 +69,7 @@ class Details extends React.Component {
   }
 
   render() {
-    const { event, place } = this.props;
+    const { event, place } = this.state;
 
     if (!this.props.detailsReady) {
       return <Loading />;

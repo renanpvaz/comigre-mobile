@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { Card, ListItem, Icon } from 'react-native-elements'
+import I18n from 'react-native-i18n';
 
 import styles from './styles';
 import images from '../../config/images';
@@ -30,7 +31,7 @@ class Home extends React.Component {
       <Card key={place._id} containerStyle={{  marginLeft: 0, marginRight: 0 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={{ marginBottom: 10 }}>
-            Cadastrado por <Text style={{ color: '#DF1562' }}>{capitalize(place.user.username)}</Text>
+            {I18n.t('createdBy')}<Text style={{ color: '#DF1562' }}>{capitalize(place.user.username)}</Text>
           </Text>
           <Icon
             color="#DF1562"
@@ -48,7 +49,7 @@ class Home extends React.Component {
           </Text>
           <TouchableOpacity onPress={() => this.props.onDetailsPress(place)} style={styles.cardDetails}>
             <Text style={{ color: '#777' }}>
-              Ver Detalhes
+              {I18n.t('seeMore')}
             </Text>
             <Icon color="#777" name='keyboard-arrow-right' />
           </TouchableOpacity>
