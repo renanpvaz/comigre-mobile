@@ -46,13 +46,13 @@ class LoggedIn extends React.Component {
 
   render() {
     const { recents, map, settings, guides } = images.icons;
-    const { getHomeRoute, getMapRoute, getSettingsRoute, getProfileRoute } = Routes;
+    const { getHomeRoute, getMapRoute, getSettingsRoute, getGuidesRoute } = Routes;
 
     return (
       <TabNavigator tabBarStyle={{ height: 53 }}>
         {this.renderTabItem({ title: I18n.t('recents'), id: 'recents' }, getHomeRoute(), recents)}
         {this.renderTabItem({ title: I18n.t('map'), id: 'map' }, getMapRoute(), map)}
-        {this.renderTabItem({ title: I18n.t('guides'), id: 'guides' }, getProfileRoute(), guides)}
+        {this.renderTabItem({ title: I18n.t('guides'), id: 'guides' }, getGuidesRoute(), guides)}
         {this.renderTabItem({ title: I18n.t('settings'), id: 'settings' }, getSettingsRoute(() => this.forceUpdate()), settings)}
       </TabNavigator>
     );

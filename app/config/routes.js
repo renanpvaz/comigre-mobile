@@ -6,6 +6,7 @@ import I18n from 'react-native-i18n';
 
 import images from './images';
 import Home from '../routes/Home';
+import Guides from '../routes/Guides';
 import Map from '../routes/Map';
 import Profile from '../routes/Profile';
 import Settings from '../routes/Settings';
@@ -41,6 +42,21 @@ export const routes = {
       },
 
       showNavigationBar: true,
+    };
+  },
+  getGuidesRoute() {
+    return {
+      renderScene(navigator) {
+        return <Guides navigator={navigator} />;
+      },
+
+      getTitle() {
+        return 'Guides';
+      },
+
+      renderTitle() {
+        return title;
+      },
     };
   },
   getSettingsRoute(onLanguageSelected) {
@@ -87,26 +103,6 @@ export const routes = {
         return 'Details';
       },
 
-    };
-  },
-  getProfileRoute(place, onBackPressed) {
-    return {
-      renderScene(navigator) {
-        return <Profile place={place} navigator={navigator} />;
-      },
-
-      renderLeftButton() {
-        return (
-          <TouchableOpacity onPress={onBackPressed} style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
-            <Icon name="keyboard-arrow-left" color="gray" />
-            <Text style={{ fontSize: 18 }}>
-              {I18n.t('recents')}
-            </Text>
-          </TouchableOpacity>
-        );
-      },
-
-      showNavigationBar: false,
     };
   },
   getSignInRoute() {
